@@ -1,5 +1,13 @@
 # end-to-end-NLP-text-classification
 
+## Project Workflow
+
+- constants
+- config_entity
+- artifact_entity
+- components
+- pipeline
+- main
 
 ## How to run ?
 
