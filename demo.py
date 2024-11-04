@@ -9,7 +9,3 @@ import sys
 #     a=1/0
 # except Exception as e:
 #     raise CustomException(e,sys)
-
-obj = GcloudSyncer()
-
-obj.sync_folder_from_gcloud("hate_speech_101", "dataset.zip", "dataset.zip")
