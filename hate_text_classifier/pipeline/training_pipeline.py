@@ -3,6 +3,7 @@ from hate_text_classifier.exception import CustomException
 from hate_text_classifier.logger import logging
 from hate_text_classifier.entity.config_entity import DataIngestionConfig
 from hate_text_classifier.components.data_ingestion import DataIngestion
+from hate_text_classifier.components.data_validation import DataValidation
 from hate_text_classifier.entity.artifact_entity import DataIngestionArtifact
 
 
@@ -15,6 +16,12 @@ class TrainingPipeline:
             logging.info("Getting the data from gcloud bucket storage")
             data_ingestion = DataIngestion(data_ingestion_config=self.data_ingestion_config)
             data_ingestion_artifacts = data_ingestion.initiate_data_ingestion()
+            data_validation = DataValidation(data_ingestion_artifact=data_ingestion_artifacts)
+            is_valid = data_validation.validate_dataset()
+
+            if not is_valid:
+                raise Exception("Data validation failed")
+            
             logging.info("Got the data from gcloud bucket storage")
 
             return data_ingestion_artifacts
