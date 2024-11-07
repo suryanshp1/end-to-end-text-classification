@@ -26,3 +26,40 @@ class DataTransformationConfig:
         self.INPLACE = INPLACE
         self.CLASS = CLASS
         self.DROP_COLUMNS = DROP_COLUMNS
+
+@dataclass
+class ModelTrainerConfig:
+    def __init__(self):
+        self.TRAINED_MODEL_DIR = os.path.join(os.getcwd(),ARTIFACT_DIR, MODEL_TRAINER_ARTIFACT_DIR)
+        self.TRAINED_MODEL_PATH = os.path.join(self.TRAINED_MODEL_DIR, TRAINED_MODEL_NAME)
+        self.X_TEST_DATA_PATH = os.path.join(self.TRAINED_MODEL_DIR, X_TEST_FILE_NAME)
+        self.Y_TEST_DATA_PATH = os.path.join(self.TRAINED_MODEL_DIR, Y_TEST_FILE_NAME)
+        self.X_TRAIN_DATA_PATH = os.path.join(self.TRAINED_MODEL_DIR, X_TRAIN_FILE_NAME)
+        self.MAX_WORDS = MAX_WORDS
+        self.MAX_LEN = MAX_LEN
+        self.LOSS = LOSS
+        self.METRICS = METRICS
+        self.ACTIVATION = ACTIVATION
+        self.LABEL = LABEL
+        self.TWEET = TWEET
+        self.RANDOM_STATE = RANDOM_STATE
+        self.EPOCH = EPOCH
+        self.BATCH_SIZE = BATCH_SIZE
+        self.VALIDATION_SPLIT = VALIDATION_SPLIT
+
+
+@dataclass
+class ModelEvaluationConfig:
+    def __init__(self):
+        self.MODEL_EVALUATION_MODEL_DIR = os.path.join(os.getcwd(),ARTIFACT_DIR, MODEL_EVALUATION_ARTIFACT_DIR)
+        self.BEST_MODEL_DIR_PATH : str = os.path.join(self.MODEL_EVALUATION_MODEL_DIR, BEST_MODEL_DIR)
+        self.MODEL_NAME = MODEL_NAME
+        self.BUCKET_NAME = BUCKET_NAME
+
+
+@dataclass
+class ModelPusherConfig:
+    def __init__(self):
+        self.TRAINED_MODEL_PATH = os.path.join(os.getcwd(),ARTIFACT_DIR, MODEL_TRAINER_ARTIFACT_DIR)
+        self.MODEL_NAME = MODEL_NAME
+        self.BUCKET_NAME = BUCKET_NAME
