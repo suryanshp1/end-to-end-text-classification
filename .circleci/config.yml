@@ -25,8 +25,7 @@ jobs:
           tag: latest
 
   continuous-delivery:
-    docker:
-      - image: cimg/base:current
+    machine: true
     resource_class: suraj/haterunner
     steps:
       - aws-cli/setup
