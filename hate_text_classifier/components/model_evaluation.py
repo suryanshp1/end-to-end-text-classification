@@ -32,8 +32,8 @@ class ModelEvaluation:
            os.makedirs(self.model_eval_config.BEST_MODEL_DIR_PATH, exist_ok=True)
 
            self.gcloud.sync_folder_from_gcloud(
-               bucket_name=self.model_eval_config.BUCKET_NAME,
-               zip_file_path=self.model_eval_config.MODEL_NAME,
+               gcp_bucket_url=self.model_eval_config.BUCKET_NAME,
+               filename=self.model_eval_config.MODEL_NAME,
                destination=self.model_eval_config.BEST_MODEL_DIR_PATH
            )
 

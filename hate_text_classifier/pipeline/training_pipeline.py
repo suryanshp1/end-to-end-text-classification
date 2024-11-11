@@ -59,7 +59,7 @@ class TrainingPipeline:
     def start_model_evaluation(self, model_trainer_artifact: ModelTrainerArtifact, data_transformation_artifact: DataTransformationArtifact) -> ModelEvaluationArtifact:
         try:
             logging.info("Started model evaluation")
-            model_evaluation = ModelEvaluation(model_evaluation_config=self.model_evaluation_config, model_trainer_artifact=model_trainer_artifact, data_transformation_artifact=data_transformation_artifact)
+            model_evaluation = ModelEvaluation(model_eval_config=self.model_evaluation_config, model_trainer_artifact=model_trainer_artifact, data_transformation_artifact=data_transformation_artifact)
             model_evaluation_artifact = model_evaluation.initiate_model_evaluation()
             logging.info("Ended model evaluation")
             return model_evaluation_artifact
