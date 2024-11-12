@@ -5,7 +5,7 @@ orbs:
 jobs:
   continuous-integration:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/base:current
     resource_class: medium
     steps:
       - setup_remote_docker:
